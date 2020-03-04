@@ -20,7 +20,7 @@ NOTE:
 NOTES ON THE HELPER FUNCTION:
   COLUMN OBJECT PARSER:
      ARGUMENTS:
-       >`sheet` => this is the array of arrays you get after you parse a `csv` or `xlsx` file using the included `node-xlsx`                      library.
+       > sheet => this is the array of arrays you get after you parse a `csv` or `xlsx` file using the included `node-xlsx`                      library.
        >`targetRow` => DEFAULTS TO 0; sets the target row in which the parser will extract JSON object's parent keys.
        >`targetColumn` => DEFAULTS TO 0; sets the target column at which the parser will extract targetRow's child keys.
        >`rowFloor` => DEFAULTS TO 1: sets the first row that will be added to JSON object. Will loop and add subsequent rows                         until all rows added unless a lower floorCeiling is defined.

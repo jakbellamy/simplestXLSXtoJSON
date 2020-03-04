@@ -20,11 +20,11 @@ NOTE:
 NOTES ON THE HELPER FUNCTION:
   COLUMN OBJECT PARSER:
      ARGUMENTS:
-       > 1: `sheet` => this is the array of arrays you get after you parse a `csv` or `xlsx` file using the included `node-xlsx`                      library.
-       > 2: `targetRow` => DEFAULTS TO 0; sets the target row in which the parser will extract JSON object's parent keys.
-       > 3: `targetColumn` => DEFAULTS TO 0; sets the target column at which the parser will extract targetRow's child keys.
-       > 4: `rowFloor` => DEFAULTS TO 1: sets the first row that will be added to JSON object. Will loop and add subsequent rows                         until all rows added unless a lower floorCeiling is defined.
-       > 5: `rowCeiling` => DEFAULTS TO 2500: set lower to crop product data-set, or higher if your file contains more than 2500                           rows.
+       >`sheet` => this is the array of arrays you get after you parse a `csv` or `xlsx` file using the included `node-xlsx`                      library.
+       >`targetRow` => DEFAULTS TO 0; sets the target row in which the parser will extract JSON object's parent keys.
+       >`targetColumn` => DEFAULTS TO 0; sets the target column at which the parser will extract targetRow's child keys.
+       >`rowFloor` => DEFAULTS TO 1: sets the first row that will be added to JSON object. Will loop and add subsequent rows                         until all rows added unless a lower floorCeiling is defined.
+       >`rowCeiling` => DEFAULTS TO 2500: set lower to crop product data-set, or higher if your file contains more than 2500                           rows.
  
  ROW OBJECT PARSER: 
   --IN DEVELOPMENT--

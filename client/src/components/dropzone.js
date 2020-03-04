@@ -1,4 +1,4 @@
-import React, {useMemo, useCallback, useState, useEffect} from 'react';
+import React, {useMemo, useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
 const Styles = require('./styles/dropzoneStyles');
 

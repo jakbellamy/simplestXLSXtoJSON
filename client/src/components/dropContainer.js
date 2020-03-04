@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MyDropzone from './dropzone';
-const Styles = require('./styles/dropContainerStyles');
 
 export default function DropContainer() {
   // file from dropzone

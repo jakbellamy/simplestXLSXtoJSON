@@ -22,6 +22,7 @@ exports.columnObjectParser = async (req, res) => {
   });
 };
 
+//specific argumetns for Account Production Report
 exports.rowObjectParser = async (req, res) => {
   let [header, data] = req.body.xls.split(',');
   let EXT = header.includes('csv') ? 'csv' : 'xlsx';
@@ -35,7 +36,7 @@ exports.rowObjectParser = async (req, res) => {
     let jsonObject = {};
     for(let i=0; i<workSheetsFromBuffer.length; i++){
       let sheet = workSheetsFromBuffer[i];
-      jsonObject[`${sheet.name}`] = 'hello world'
+      jsonObject[`${sheet.name}`] = Helper.rowObjectParser(sheet.data, 1, 1, 2, 9, true);
     };
     res.status(200).json(jsonObject);
   });

@@ -1,6 +1,6 @@
 const ParseController = require('../controllers/parseController');
 
 module.exports = (app) => {
-  app.route('/parse_json')
-  .post(ParseController.jsonMaker);
+  app.route('/parse_columns')
+  .post(ParseController.columnObjectParser);
 };

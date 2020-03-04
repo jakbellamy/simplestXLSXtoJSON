@@ -23,23 +23,15 @@ const findCellByColumn = (sheet, columnNum, identifier, cellNum) => {
 
 //for use when the object-base is defined by the column
 const columnObjectParser = (sheet, rowIn = 0, colIn = 1, rowOut, colOut) => {
+  //initialize parent keys
+  let jsonObject = {}
   let parentKeys = sheet[rowIn];
-  let product = [];
   if(parentKeys){
-    parentKeys = parentKeys.slice(colIn, sheet.length);
-    for(let i = rowIn; i<parentKeys.length; i++){
-      let parentObject = {};
-      let childKeys = []
-      //fill children
-      for(let j = rowIn + 1; i<sheet.length; i++){
-        console.log('do something')
-      };
-      //fill parent with children
-      parentObject[`${parentKeys[i]}`] = sheet[rowIn + 1];
-      product.push(parentObject);
+    for(i=colIn; i < parentKeys.length; i++){
+      jsonObject[`${parentKeys[i]}`] = 'hello world'
     };
   };
-  return parentKeys;
+  return jsonObject;
 };
 
 //for use when the object-base is defined by the row

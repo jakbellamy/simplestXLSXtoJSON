@@ -3,7 +3,7 @@ const xlsx = require('node-xlsx');
 const Helper = require('./helpers/helpers');
 const PRIVATE = '/Users/jakobbellamy/Dev/simplestXLSXtoJSON/src/private';
 
-exports.jsonMaker = async (req, res) => {
+exports.columnObjectParser = async (req, res) => {
   let xArr = req.body.xls.split(',');
   let EXT = xArr[0].includes('csv') ? 'csv' : 'xlsx';
   let buff = new Buffer.from(xArr[1], 'base64');

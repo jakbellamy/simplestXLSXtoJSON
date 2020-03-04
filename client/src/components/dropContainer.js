@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MyDropzone from './dropzone';
 const Styles = require('./styles/dropContainerStyles');
 
@@ -6,20 +6,16 @@ export default function DropContainer() {
   // file from dropzone
   const [importedFiles, setImportedFiles] = useState(null);
   const [fileIsPresent, setFileIsPresent] = useState(false);
+  const [parseMethod, setParseMethod] = useState('parseCol');
+  const [parseParams, setParseParams] = useState({});
 
-  if(fileIsPresent){
-    console.log(importedFiles);
-    fetch( `http://localhost:5000/xls_reports`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        xls: window.btoa(importedFiles)
-      })
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
+  const methodSwitch = (params) => {
+    switch(params){
+      case 'parseCol':
+        return 'parse_columns';
+      case 'parseRow':
+        return 'parse_rows';
+    };
   };
 
   return(
@@ -30,6 +26,10 @@ export default function DropContainer() {
         importedFiles={importedFiles}
         setImportedFiles={setImportedFiles}
         setFileIsPresent={setFileIsPresent}
+        parseMethod={parseMethod}
+        setParseMethod={setParseMethod}
+        setParseParams={setParseParams}
+        methodSwitch={methodSwitch}
       />
     </div>
   );

@@ -10,7 +10,7 @@ exports.columnObjectParser = async (req, res) => {
   fs.writeFile(`src/private/test.${EXT}`, buff, (err, result) => {
     if(err){
       console.log('error: ', err);
-    }
+    };
   }, function() {
     const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${PRIVATE}/test.${EXT}`));
     let jsonObject = {};
@@ -20,4 +20,8 @@ exports.columnObjectParser = async (req, res) => {
     };
     res.status(200).json(jsonObject);
   });
+};
+
+exports.rowObjectParser = async (req, res) => {
+  res.status(200).json('TODO')
 };

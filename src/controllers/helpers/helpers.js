@@ -19,8 +19,6 @@ const findCellByColumn = (sheet, columnNum, identifier, cellNum) => {
   console.log(`${identifier} not found in column ${columnNum} of provided array`)
 };
 
-
-
 //for use when the object-base is defined by the column
 const columnObjectParser = (sheet, rowIn = 0, colIn = 1, rowOut, colOut) => {
   let jsonObject = {}
@@ -36,7 +34,6 @@ const columnObjectParser = (sheet, rowIn = 0, colIn = 1, rowOut, colOut) => {
   return jsonObject;
 };
 
-//for use when the object-base is defined by the row
 const rowObjectParser = () => {
   console.log('do something');
 };

@@ -18,7 +18,6 @@ exports.columnObjectParser = async (req, res) => {
     let sheetsArr = {};
     for(let i=0; i<workSheetsFromBuffer.length; i++){
       let sheet = workSheetsFromBuffer[i];
-      //DEFINE VALUE PAIRS WITHIN SHEET
       sheetsArr[`${sheet.name}`] = Helper.columnObjectParser(sheet.data);
     };
     res.status(200).json(sheetsArr);

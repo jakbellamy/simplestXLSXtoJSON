@@ -34,7 +34,7 @@ NOTES ON THE HELPER FUNCTION:
        5. `rowCeiling` => DEFAULTS TO 2500: set lower to crop product data-set, or higher if your file contains more than 2500 rows.
  
  ROW OBJECT PARSER: 
-  --IN DEVELOPMENT--
+    IN DEVELOPMENT:
  
  READMORE:
   If you want more flexibility, feel free to add a new helper or controller and submit it for review.

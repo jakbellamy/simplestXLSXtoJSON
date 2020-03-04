@@ -1,3 +1,4 @@
 /node_modules
 /src/private/*
+/client/node_modules
 .git

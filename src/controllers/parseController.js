@@ -4,22 +4,20 @@ const Helper = require('./helpers/helpers');
 const PRIVATE = '/Users/jakobbellamy/Dev/simplestXLSXtoJSON/src/private';
 
 exports.columnObjectParser = async (req, res) => {
-  let xArr = req.body.xls.split(',');
-  let EXT = xArr[0].includes('csv') ? 'csv' : 'xlsx';
-  let buff = new Buffer.from(xArr[1], 'base64');
+  let [header, data] = req.body.xls.split(',');
+  let EXT = header.includes('csv') ? 'csv' : 'xlsx';
+  let buff = new Buffer.from(data, 'base64');
   fs.writeFile(`src/private/test.${EXT}`, buff, (err, result) => {
     if(err){
       console.log('error: ', err);
     }
-  }, () => {
-    //callback: parse file
+  }, function() {
     const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${PRIVATE}/test.${EXT}`));
-    //initialize empty data object then fill with sheets
-    let sheetsArr = {};
+    let jsonObject = {};
     for(let i=0; i<workSheetsFromBuffer.length; i++){
       let sheet = workSheetsFromBuffer[i];
-      sheetsArr[`${sheet.name}`] = Helper.columnObjectParser(sheet.data);
+      jsonObject[`${sheet.name}`] = Helper.columnObjectParser(sheet.data);
     };
-    res.status(200).json(sheetsArr);
+    res.status(200).json(jsonObject);
   });
 };

@@ -1,11 +1,11 @@
-exports.columnObjectParser = (sheet, rowIn = 0, colIn = 1, rowOut, colOut) => {
+exports.columnObjectParser = (sheet, targetRow = 0, targetColumn = 0, rowFloor = 1, rowCeiling = 2500) => {
   let jsonObject = {}
-  let parentKeys = sheet[rowIn];
+  let parentKeys = sheet[targetRow];
   if(parentKeys){
-    for(i=colIn; i < parentKeys.length; i++){
+    for(i = targetColumn; i < parentKeys.length; i++){
       jsonObject[`${parentKeys[i]}`] = {};
-      for(j=1; j<sheet[i].length; j++){
-        jsonObject[`${parentKeys[i]}`][`${sheet[j][0]}`] = sheet[i][j];
+      for(j = rowFloor; j<sheet[i].length && j<rowCeiling; j++){
+        jsonObject[`${parentKeys[i]}`][`${sheet[j][targetColumn]}`] = sheet[i][j];
       };
     };
   };

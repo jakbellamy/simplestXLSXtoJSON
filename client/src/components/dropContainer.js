@@ -15,7 +15,6 @@ export default function DropContainer() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        //convert file to BASE64
         xls: window.btoa(importedFiles)
       })
     })

@@ -41,4 +41,4 @@ NOTES ON THE HELPER FUNCTION:
 
   If you want more flexibility, feel free to add a new helper or controller and submit it for review.
 
-  In the mean time, I'll be working on adding a samll form component (client-side) to set new arguments for the helper function. I'll also be adding a more standard rowObjectParser with similar arguments for document scope soon.
+  In the mean time, I'll be working on adding a samll form component (client-side) to set new arguments for the helper           function. I'll also be adding a more standard rowObjectParser with similar arguments for document scope soon.

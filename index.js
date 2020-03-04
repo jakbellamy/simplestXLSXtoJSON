@@ -7,6 +7,7 @@ const PORT = 9000;
 //initialize express, cors, and body-parser
 const app = express().use(cors())
   .use(bodyParser.urlencoded({extended: true}))
+  .use(bodyParser({limit: '50mb'}))
   .use(bodyParser.json());
 
 //initilalize router

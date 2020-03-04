@@ -10,7 +10,7 @@ export default function MyDropzone(props) {
     const file = acceptedFiles[0];
     const reader = new FileReader();
     reader.onload = async (event) => {
-        fetch( `http://localhost:9000/parse_columns`, {
+        fetch( `http://localhost:9000/parse_rows`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

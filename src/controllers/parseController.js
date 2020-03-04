@@ -23,5 +23,20 @@ exports.columnObjectParser = async (req, res) => {
 };
 
 exports.rowObjectParser = async (req, res) => {
-  res.status(200).json('TODO')
+  let [header, data] = req.body.xls.split(',');
+  let EXT = header.includes('csv') ? 'csv' : 'xlsx';
+  let buff = new Buffer.from(data, 'base64');
+  fs.writeFile(`src/private/rowTest.${EXT}`, buff, (err, result) => {
+    if(err){
+      console.log('error: ', err);
+    };
+  }, function() {
+    const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${PRIVATE}/rowTest.${EXT}`));
+    let jsonObject = {};
+    for(let i=0; i<workSheetsFromBuffer.length; i++){
+      let sheet = workSheetsFromBuffer[i];
+      jsonObject[`${sheet.name}`] = 'hello world'
+    };
+    res.status(200).json(jsonObject);
+  });
 };
